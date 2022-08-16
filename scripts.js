@@ -1,26 +1,57 @@
 let array1 = [1, 5, 6, 9, 10, 14];
 
 // print the 3rd element in array1
-console.log(array1.includes("9"));
+
+console.log(array1[2]);
 
 // print the last element in array1
 
+console.log(array1[5]);
+
 // add 16 and 3 to array1
 
+array1.push('16', '3');
+console.log(array1)
+
 // sort the array, then print the 3rd element again
+
+array1.sort();
+console.log(array1);
+
 // did it change?
 
+//yes it changed. [1, 10, 14, 16, 3, 5, 6, 9]
 
 // create a variable called myTodoList that holds an empty array
 
+ let husband1ToDoList = []
+
 // add three todo items to the array using a built-in array method
+
+myToDoList.push('laundry', 'grocery shopping', 'walk the dogs');
+console.log(myToDoList);
 
 // remove the second item in the array
 
+myToDoList.splice(0,1);
+console.log(myToDoList);
+
 // create another array, yourTodoList, and add two todo items
 
+let husband2TodoList = [];
+
+yourTodoList.push('mow the lawn', 'shovel the driveway');
+console.log(yourTodoList);
+
 // create another array, ourTodoList
+
+let coupleTodoList = [];
+
 // combine myTodoList and yourTodoList into ourTodoList
+
+let husband1ToDoList = ['laundry', 'grocery shopping', 'walk the dogs'];
+let husband2TodoList = ['mow the lawn', 'shovel the driveway'];
+let coupleToDoList = coupleToDoList.concat(yourTodoList);
 
 
 // sort the following array from Z-A
