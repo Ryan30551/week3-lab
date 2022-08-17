@@ -24,37 +24,38 @@ console.log(array1);
 
 // create a variable called myTodoList that holds an empty array
 
- let husband1ToDoList = []
+ let myTodoList = [];
 
 // add three todo items to the array using a built-in array method
 
-myToDoList.push('laundry', 'grocery shopping', 'walk the dogs');
-console.log(myToDoList);
+myTodoList.push('laundry', 'grocery shopping', 'walk the dogs');
+console.log(myTodoList);
 
 // remove the second item in the array
 
-myToDoList.splice(0,1);
-console.log(myToDoList);
+myTodoList.splice(0,1);
+console.log(myTodoList);
 
 // create another array, yourTodoList, and add two todo items
 
-let husband2TodoList = [];
+let yourTodoList = [];
 
 yourTodoList.push('mow the lawn', 'shovel the driveway');
 console.log(yourTodoList);
 
 // create another array, ourTodoList
 
-let coupleTodoList = [];
+let ourTodoList = [];
 
 // combine myTodoList and yourTodoList into ourTodoList
 
-let husband1ToDoList = ['laundry', 'grocery shopping', 'walk the dogs'];
-let husband2TodoList = ['mow the lawn', 'shovel the driveway'];
-let coupleToDoList = coupleToDoList.concat(yourTodoList);
+ourTodoList = [...myTodoList, ...yourTodoList, 'wash the car'];
+console.log(ourTodoList);
 
 
 // sort the following array from Z-A
+
+
 
 // create a function called reverse that takes in parameter
 // this function will return the opposite of whatever is passed in
@@ -66,7 +67,18 @@ let coupleToDoList = coupleToDoList.concat(yourTodoList);
 // create a function called addingMachine that will add all passed numbers and return the total
 // Note: you don't know how many numbers will be passed
 
+function addingMachine(){
+    // console.log(arguments);
+    let sum = 0;
 
+    for(let i = 0; i < arguments.length; i++){
+        let number = arguments[i];
+        
+        sum += number;
+        
+    } 
+    return sum;
+}
 
 // You just signed a contract as an estimator for a restoration company. 
 // Your contract states that you take home 10% of the profits on the first $100,000
@@ -75,3 +87,41 @@ let coupleToDoList = coupleToDoList.concat(yourTodoList);
 // 40% on all profits above $1,000,000
 // create a function that will allow you to check how much of a bonus you make
 // the function should take in two variables as arguments, grossInvoiced and profitMargin
+
+function myBonus(grossInvoiced, profitMargin){
+    let profits = grossInvoiced * profitMargin;
+
+    let bonus = 0;
+    
+    let tier1Cieling = 100000;
+    let tier2Cieling = 400000;
+    let tier3Cieling = 500000;
+
+    let tier1Rate = .1;
+    let tier2Rate = .2;
+    let tier3Rate = .35;
+    let tier4Rate = .4;
+    
+    let maxBonusTier1 = tier1Cieling * tier1Rate;
+    let maxBonusTier2 = tier2Cieling * tier2Rate + maxBonusTier1;
+    let maxBonusTier3 = tier3Cieling * tier3Rate + maxBonusTier2;
+
+    if(profits <= tier1Cieling){
+        bonus = (profits * .1);
+    } else if(profits <= (tier2Cieling + tier1Cieling)) {
+        bonus = maxBonusTier1 + ((profits - tier1Cieling) * tier2Rate)
+    } else if(profits <= (tier3Cieling + tier2Cieling + tier1Cieling)) {
+        bonus = maxBonusTier2 + ((profits - tier1Cieling - tier2Cieling) * tier3Rate)
+    } else if(profits > 1000000){
+        bonus = maxBonusTier3 + ((profits - tier1Cieling - tier2Cieling - tier3Cieling) * tier4Rate)
+    } else {
+        return "Error";
+    }
+
+    return bonus;
+}
+
+// console.log(myBonus(10000, .563))
+// console.log(myBonus(250000, .356))
+// console.log(myBonus(750000, .235))
+// console.log(myBonus(35000000, .487))
